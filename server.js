@@ -27,6 +27,10 @@ const client = new speech.SpeechClient({
     keyFilename: "google-stt-key.json",
 });
 
+app.get("/", (req, res) => {
+  res.send("STT backend is running");
+});
+
 app.post("/stt", upload.single("audio"), async (req, res) => {
     try {
         console.log("📥 /stt called");
