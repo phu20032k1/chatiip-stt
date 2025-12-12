@@ -19,13 +19,13 @@ const path = require("path");
 
 const app = express();
 app.use(cors());
-app.use(express.static(__dirname));
+
+
 
 const upload = multer({ storage: multer.memoryStorage() });
 
-const client = new speech.SpeechClient({
-    keyFilename: "google-stt-key.json",
-});
+const client = new speech.SpeechClient();
+
 
 app.get("/", (req, res) => {
   res.send("STT backend is running");
